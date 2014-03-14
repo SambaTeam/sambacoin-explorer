@@ -57,30 +57,38 @@ EPOCH1970 = calendar.timegm(TIME1970)
 # Configurable templates may contain either.  HTML seems better supported
 # under Internet Explorer.
 DEFAULT_CONTENT_TYPE = "text/html; charset=utf-8"
-DEFAULT_HOMEPAGE = "chains";
+DEFAULT_HOMEPAGE = "chains/Sambacoin";
 DEFAULT_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css"
-     href="%(dotdot)s%(STATIC_PATH)sabe.css" />
+    <link rel="stylesheet" type="text/css" href="%(dotdot)s%(STATIC_PATH)sabe.css" />
     <link rel="shortcut icon" href="%(dotdot)s%(STATIC_PATH)sfavicon.ico" />
+    
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
     <title>%(title)s</title>
 </head>
 <body>
-    <h1><a href="%(dotdot)s%(HOMEPAGE)s"><img
-     src="%(dotdot)s%(STATIC_PATH)slogo32.png" alt="Abe logo" /></a> %(h1)s
-    </h1>
+    <div class="jumbotron">
+        <h1>Sambacoin Block Explorer</h1>
+        <p>Let's Samba!</p>
+    </div>
+
     %(body)s
+    
     <p><a href="%(dotdot)sq">API</a> (machine-readable pages)</p>
     <p style="font-size: smaller">
         <span style="font-style: italic">
             Powered by <a href="%(ABE_URL)s">%(APPNAME)s</a>
         </span>
         %(download)s
-        Tips appreciated!
-        <a href="%(dotdot)saddress/%(DONATIONS_BTC)s">BTC</a>
-        <a href="%(dotdot)saddress/%(DONATIONS_NMC)s">NMC</a>
+        
+        be.sambacoin.info site by SambaTeam. Please donate to help support site:
+        <!-- BTC: No one yet! -->SMB: dXHDYczgN3VuM9kdrnAFEC6iscoCtvqzRF
+        Donate to Abe developer at BTC: 1PWC7PNHL1SgvZaN7xEtygenKjWobWsCuf
     </p>
 </body>
 </html>
@@ -287,13 +295,13 @@ class Abe:
         body = page['body']
         body += [
             abe.search_form(page),
-            '<table>\n',
-            '<tr><th>Currency</th><th>Code</th><th>Block</th><th>Time</th>',
+            '<table class="table table-striped table-hover ">\n',
+            '<thead><tr><th>Currency</th><th>Code</th><th>Block</th><th>Time</th>',
             '<th>Started</th><th>Age (days)</th><th>Coins Created</th>',
             '<th>Avg Coin Age</th><th>',
             '% <a href="https://en.bitcoin.it/wiki/Bitcoin_Days_Destroyed">',
             'CoinDD</a></th>',
-            '</tr>\n']
+            '</tr></thead><tbody>\n']
         now = time.time() - EPOCH1970
 
         rows = abe.store.selectall("""
@@ -357,7 +365,7 @@ class Abe:
                         '<td>', percent_destroyed, '</td>']
 
             body += ['</tr>\n']
-        body += ['</table>\n']
+        body += ['</tbody></table>\n']
         if len(rows) == 0:
             body += ['<p>No block data found.</p>\n']
 
@@ -466,7 +474,7 @@ class Abe:
         extra = False
         #extra = True
         body += ['<p>', nav, '</p>\n',
-                 '<table><tr><th>Block</th><th>Approx. Time</th>',
+                 '<table class="table table-striped table-hover "><thead><tr><th>Block</th><th>Approx. Time</th>',
                  '<th>Transactions</th><th>Value Out</th>',
                  '<th>Difficulty</th><th>Outstanding</th>',
                  '<th>Average Age</th><th>Chain Age</th>',
@@ -476,7 +484,7 @@ class Abe:
                  ['<th>Satoshi-seconds</th>',
                   '<th>Total ss</th>']
                  if extra else '',
-                 '</tr>\n']
+                 '</tr></thead><tbody>\n']
         for row in rows:
             (hash, height, nTime, num_tx, nBits, value_out,
              seconds, ss, satoshis, destroyed, total_ss) = row
@@ -513,7 +521,7 @@ class Abe:
                  '</td><td>', '%8g' % total_ss] if extra else '',
                 '</td></tr>\n']
 
-        body += ['</table>\n<p>', nav, '</p>\n']
+        body += ['</tbody></table>\n<p>', nav, '</p>\n']
 
     def _show_block(abe, where, bind, page, dotdotblock, chain):
         address_version = ('\0' if chain is None
@@ -719,9 +727,9 @@ class Abe:
 
         body += ['<h3>Transactions</h3>\n']
 
-        body += ['<table><tr><th>Transaction</th><th>Fee</th>'
+        body += ['<table class="table table-striped table-hover "><thead><tr><th>Transaction</th><th>Fee</th>'
                  '<th>Size (kB)</th><th>From (amount)</th><th>To (amount)</th>'
-                 '</tr>\n']
+                 '</tr></thead><tbody>\n']
         for tx_id in tx_ids:
             tx = txs[tx_id]
             body += ['<tr><td><a href="../tx/' + tx['hash'] + '">',
@@ -757,7 +765,7 @@ class Abe:
                     address_version, txout['pubkey_hash'], page['dotdot'])
                 body += [': ', format_satoshis(txout['value'], chain), '<br />']
             body += ['</td></tr>\n']
-        body += '</table>\n'
+        body += '</tbody></table>\n'
 
     def handle_block(abe, page):
         block_hash = wsgiref.util.shift_path_info(page['env'])
@@ -953,23 +961,23 @@ class Abe:
             '<br />\n',
             '<a href="../rawtx/', tx_hash, '">Raw transaction</a><br />\n']
         body += ['</p>\n',
-                 '<a name="inputs"><h3>Inputs</h3></a>\n<table>\n',
+                 '<a name="inputs"><h3>Inputs</h3></a>\n<table class="table table-striped table-hover "><thead>\n',
                  '<tr><th>Index</th><th>Previous output</th><th>Amount</th>',
                  '<th>From address</th>']
         if abe.store.keep_scriptsig:
             body += ['<th>ScriptSig</th>']
-        body += ['</tr>\n']
+        body += ['</tr></thead><tbody>\n']
         for row in in_rows:
             row_to_html(row, 'i', 'o',
                         'Generation' if is_coinbase else 'Unknown')
-        body += ['</table>\n',
-                 '<a name="outputs"><h3>Outputs</h3></a>\n<table>\n',
+        body += ['</tbody></table>\n',
+                 '<a name="outputs"><h3>Outputs</h3></a>\n<table class="table table-striped table-hover "><thead>\n',
                  '<tr><th>Index</th><th>Redeemed at input</th><th>Amount</th>',
-                 '<th>To address</th><th>ScriptPubKey</th></tr>\n']
+                 '<th>To address</th><th>ScriptPubKey</th></tr></thead><tbody>\n']
         for row in out_rows:
             row_to_html(row, 'o', 'i', 'Not yet redeemed')
 
-        body += ['</table>\n']
+        body += ['</tbody></table>\n']
 
     def handle_rawtx(abe, page):
         abe.do_raw(page, abe.do_rawtx)
@@ -1145,9 +1153,9 @@ class Abe:
 
         body += ['</p>\n'
                  '<h3>Transactions</h3>\n'
-                 '<table>\n<tr><th>Transaction</th><th>Block</th>'
+                 '<table class="table table-striped table-hover "><thead>\n<tr><th>Transaction</th><th>Block</th>'
                  '<th>Approx. Time</th><th>Amount</th><th>Balance</th>'
-                 '<th>Currency</th></tr>\n']
+                 '<th>Currency</th></tr></thead><tbody>\n']
 
         for elt in txpoints:
             chain = abe.store.get_chain_by_id(elt['chain_id'])
@@ -1166,7 +1174,7 @@ class Abe:
                      format_satoshis(balance[elt['chain_id']], chain),
                      '</td><td>', escape(chain.code3),
                      '</td></tr>\n']
-        body += ['</table>\n']
+        body += ['</tbody></table>\n']
 
     def search_form(abe, page):
         q = (page['params'].get('q') or [''])[0]
