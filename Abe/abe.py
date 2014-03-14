@@ -72,24 +72,33 @@ DEFAULT_TEMPLATE = """
     <title>%(title)s</title>
 </head>
 <body>
-    <div class="jumbotron">
-        <h1>Sambacoin Block Explorer</h1>
-        <p>Let's Samba!</p>
+    <div id="header">
+        <div class="container">
+            <h1 class="pull-left">
+                <a href="../chain/Diamond">
+                <img src="../static/images/dmd_logo_80x801.png" alt="Diamond"></a> Diamond Block Explorer
+            </h1>
+        </div>
     </div>
-
-    %(body)s
-    
-    <p><a href="%(dotdot)sq">API</a> (machine-readable pages)</p>
-    <p style="font-size: smaller">
-        <span style="font-style: italic">
-            Powered by <a href="%(ABE_URL)s">%(APPNAME)s</a>
-        </span>
-        %(download)s
+    <div class="container" id="body-container">
+        %(body)s
+    </div>
+    <div id="footer" style="padding-top: 10px">
+        <div class="container">
+            <p><a href="%(dotdot)sq">API</a> (machine-readable pages)</p>
+            <p style="font-size: smaller">
+                <span style="font-style: italic">
+                    Powered by <a href="%(ABE_URL)s">%(APPNAME)s</a>
+                </span>
         
-        be.sambacoin.info site by SambaTeam. Please donate to help support site:
-        <!-- BTC: No one yet! -->SMB: dXHDYczgN3VuM9kdrnAFEC6iscoCtvqzRF
-        Donate to Abe developer at BTC: 1PWC7PNHL1SgvZaN7xEtygenKjWobWsCuf
-    </p>
+                %(download)s
+        
+                be.sambacoin.info site by SambaTeam. Please donate to help support site:
+                <!-- BTC: No one yet! -->SMB: dXHDYczgN3VuM9kdrnAFEC6iscoCtvqzRF
+                Donate to Abe developer at BTC: 1PWC7PNHL1SgvZaN7xEtygenKjWobWsCuf
+            </p>
+        </div>
+    </div>    
 </body>
 </html>
 """
