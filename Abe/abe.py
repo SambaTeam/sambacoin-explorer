@@ -446,30 +446,32 @@ class Abe:
             hi = int(rows[0][1])
         basename = os.path.basename(page['env']['PATH_INFO'])
 
-        nav = ['<a href="',
-               basename, '?count=', str(count), '">&lt;&lt;</a>']
-        nav += [' <a href="', basename, '?hi=', str(hi + count),
-                 '&amp;count=', str(count), '">&lt;</a>']
-        nav += [' ', '&gt;']
+        nav = ['<div class="pagination-wrapper clearfix">',
+                '<ul style="margin: 0 auto" class="pagination pull-left">',
+                '<li><a href="',  basename, '?count=', str(count), '">&laquo;</a></li>']
+
+        nav += [' <li><a href="', basename, '?hi=', str(hi + count), '&amp;count=', str(count), '">&lsaquo;</a><li>']
+        nav += [' ', '&raquo;']
         if hi >= count:
-            nav[-1] = ['<a href="', basename, '?hi=', str(hi - count),
-                        '&amp;count=', str(count), '">', nav[-1], '</a>']
-        nav += [' ', '&gt;&gt;']
+            nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count), '&amp;count=', str(count), '">', nav[-1], '</a></li>']
+        nav += [' ', '&rsaquo;']
+        nav += ['</ul></div>']
+        
         if hi != count - 1:
-            nav[-1] = ['<a href="', basename, '?hi=', str(count - 1),
-                        '&amp;count=', str(count), '">', nav[-1], '</a>']
+            nav[-1] = ['<a href="', basename, '?hi=', str(count - 1), '&amp;count=', str(count), '">', nav[-1], '</a>']
         for c in (20, 50, 100, 500, 2016):
-            nav += [' ']
+            nav += [' <p class="text-center pull-right"> ']
             if c != count:
-                nav += ['<a href="', basename, '?count=', str(c)]
+                nav += ['<a class="btn btn-default btn-xs" href="', basename, '?count=', str(c)]
                 if hi is not None:
                     nav += ['&amp;hi=', str(max(hi, c - 1))]
                 nav += ['">']
-            nav += [' ', str(c)]
+                
+            nav += [' <a class="btn active btn-default btn-xs" href="#">', str(c), '</a>']
             if c != count:
                 nav += ['</a>']
 
-        nav += [' <a href="', page['dotdot'], '">Search</a>']
+        nav += ['</p></div>']
 
         extra = False
         #extra = True
@@ -1179,13 +1181,14 @@ class Abe:
     def search_form(abe, page):
         q = (page['params'].get('q') or [''])[0]
         return [
-            '<p>Search by address, block number or hash, transaction or'
-            ' public key hash, or chain name:</p>\n'
-            '<form action="', page['dotdot'], 'search"><p>\n'
-            '<input name="q" size="64" value="', escape(q), '" />'
-            '<button type="submit">Search</button>\n'
+            '<form action="', page['dotdot'], 'search" style="margin: 50px 0"><div id="search" class="text-center">\n'
+            '<input name="q" size="64" value="', escape(q), '" data-toggle="tooltip" data-placement="bottom" '
+            'title="" data-original-title="Search by address, block number or hash, transaction or public key hash,
+            'or chain name. Address or hash search requires at least the first'
+            HASH_PREFIX_MIN, ' characters."/>'
+            '<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>\n'
             '<br />Address or hash search requires at least the first ',
-            HASH_PREFIX_MIN, ' characters.</p></form>\n']
+            '</div></form>\n']
 
     def handle_search(abe, page):
         page['title'] = 'Search'
