@@ -1,15 +1,15 @@
+body {
+	color: #394620;
+}
 #header, #footer {
 	padding-top: 1px;
-	background-color: #142129;
+	background-color: #222A13; /* ou #455427 */
+	color: #87B42D;
 }
 
 #header h1 {
-	color: #fff;
+	color: #EDF2E3;
 	margin: 10px 0;
-}
-
-#footer {
-	color: #fff;
 }
 
 #q {
