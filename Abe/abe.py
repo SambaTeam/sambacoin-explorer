@@ -482,7 +482,7 @@ class Abe:
                 if hi is not None:
                     nav += ['&amp;hi=', str(max(hi, c - 1))]
                 nav += ['">', str(c), '</a>']
-            else  
+            else: 
                 nav += [' <a class="btn active btn-default btn-xs" href="#">', str(c), '</a>\n']
         
         nav += [' </p></div>']
