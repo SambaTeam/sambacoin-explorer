@@ -74,9 +74,11 @@ DEFAULT_TEMPLATE = """
 <body>
     <div id="header">
         <div class="container">
-            <h1 class="pull-left">
-                Sambacoin Explorer
-            </h1>
+            <a href="../chain/sambacoin">
+                <h1 class="pull-left">
+                    Sambacoin Explorer
+                </h1>
+            </a>
         </div>
     </div>
     <div class="container" id="body-container">
