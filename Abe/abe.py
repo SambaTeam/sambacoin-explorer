@@ -467,11 +467,13 @@ class Abe:
         nav += [' ', '&rsaquo;']
         if hi >= count:
             nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count), '&amp;count=', str(count), '">', nav[-1], '</a></li>\n']
-        nav += [' ', '&raquo;']
-        nav += ['</ul></div>\n']
         
+        nav += [' ', '&raquo;']
         if hi != count - 1:
             nav[-1] = ['<a href="', basename, '?hi=', str(count - 1), '&amp;count=', str(count), '">', nav[-1], '</a>\n']
+        
+        nav += ['</ul></div>\n']
+        
         for c in (20, 50, 100, 500, 2016):
             nav += [' <p class="text-center pull-right">\n ']
             if c != count:
