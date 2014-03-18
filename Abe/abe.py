@@ -481,11 +481,7 @@ class Abe:
                 nav += ['<a class="btn btn-default btn-xs" href="', basename, '?count=', str(c)]
                 if hi is not None:
                     nav += ['&amp;hi=', str(max(hi, c - 1))]
-                nav += ['">']
-                
-            #nav += [' ', str(c)]
-            if c != count:
-                nav += ['</a>']
+                nav += ['">', str(c), '</a>']
                 
             nav += [' <a class="btn active btn-default btn-xs" href="#">', str(c), '</a>\n']
         
