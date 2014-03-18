@@ -39,7 +39,7 @@ import base58
 
 __version__ = version.__version__
 
-ABE_APPNAME = "Abe"
+ABE_APPNAME = "Sambacoin"
 ABE_VERSION = __version__
 ABE_URL = 'https://github.com/bitcoin-abe/bitcoin-abe'
 
@@ -75,8 +75,7 @@ DEFAULT_TEMPLATE = """
     <div id="header">
         <div class="container">
             <h1 class="pull-left">
-                <a href="../chain/Sambacoin">
-                <!--<img src="../static/images/dmd_logo_80x801.png" alt="Sambacoin"></a>--> Sambacoin Explorer</a>
+                Sambacoin Explorer
             </h1>
         </div>
     </div>
