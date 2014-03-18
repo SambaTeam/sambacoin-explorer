@@ -459,18 +459,21 @@ class Abe:
             hi = int(rows[0][1])
         basename = os.path.basename(page['env']['PATH_INFO'])
 
-        nav = ['<div class="pagination-wrapper clearfix">\n',
-                '<ul style="margin: 0 auto" class="pagination pull-left">\n',
+        nav = [ '<ul style="margin: 0 auto" class="pagination pull-left">\n',
                 '<li><a href="',  basename, '?count=', str(count), '">&laquo;</a></li>\n']
 
         nav += [' <li><a href="', basename, '?hi=', str(hi + count), '&amp;count=', str(count), '">&lsaquo;</a></li>\n']
         nav += [' ', '&rsaquo;']
         if hi >= count:
-            nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count), '&amp;count=', str(count), '">', nav[-1], '</a></li>\n']
+            nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count), '&amp;count=', str(count), '">&rsaquo;</a></li>\n']
+        else:
+            nav[-1] = ['<li><a href="', basename, '?hi=', str(count - 1), '&amp;count=', str(count), '" class="disabled">&rsaquo;</a></li>\n']
         
         nav += [' ', '&raquo;']
         if hi != count - 1:
-            nav[-1] = ['<li><a href="', basename, '?hi=', str(count - 1), '&amp;count=', str(count), '">', nav[-1], '</a></li>\n']
+            nav[-1] = ['<li><a href="', basename, '?hi=', str(count - 1), '&amp;count=', str(count), '">&raquo;</a></li>\n']
+        else:
+            nav[-1] = ['<li><a href="', basename, '?hi=', str(count - 1), '&amp;count=', str(count), '" class="disabled">&raquo;</a></li>\n']
         
         nav += ['</ul></div>\n\n']
         
@@ -485,11 +488,11 @@ class Abe:
             else: 
                 nav += [' <a class="btn active btn-default btn-xs" href="#">', str(c), '</a>\n']
         
-        nav += [' </p></div>']
+        nav += [' </p>']
 
         extra = False
         #extra = True
-        body += ['<p>', nav, '</p>\n',
+        body += ['<div class="pagination-wrapper clearfix">', nav, '</div>\n',
                  '<table class="table table-striped table-hover "><thead><tr><th>Block</th><th>Approx. Time</th>',
                  '<th>Transactions</th><th>Value Out</th>',
                  '<th>Difficulty</th><th>Outstanding</th>',
