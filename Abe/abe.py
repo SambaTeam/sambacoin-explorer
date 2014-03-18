@@ -1193,7 +1193,7 @@ class Abe:
     def search_form(abe, page):
         q = (page['params'].get('q') or [''])[0]
         return [
-            '<form action="', page['dotdot'], 'search" style="margin: 50px 0"><div id="search" class="text-center">\n',
+            '<form action="', page['dotdot'], 'search" class="form-inline" style="margin: 50px 0"><div id="search" class="text-center">\n',
             '<input name="q" value="', escape(q), '" class="form-control" data-toggle="tooltip" data-placement="bottom" ',
             'data-original-title="Search by address, block number or hash, transaction or public key hash,',
             'or chain name. Address or hash search requires at least the first ',
