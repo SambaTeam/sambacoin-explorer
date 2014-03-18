@@ -466,8 +466,8 @@ class Abe:
         nav += [' <li><a href="', basename, '?hi=', str(hi + count), '&amp;count=', str(count), '">&lsaquo;</a><li>\n']
         nav += [' ', '&rsaquo;']
         if hi >= count:
-            nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count), '&amp;count=', str(count), '">', nav[-1], '\n']
-        nav += [' ', '&rsaquo;']
+            nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count), '&amp;count=', str(count), '">a', nav[-1], '\n']
+        nav += [' ', '&raquo;']
         nav += ['</a></li></ul></div>\n']
         
         if hi != count - 1:
