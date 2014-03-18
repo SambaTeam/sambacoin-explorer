@@ -480,9 +480,9 @@ class Abe:
                     nav += ['&amp;hi=', str(max(hi, c - 1))]
                 nav += ['">']
                 
-            nav += [' <a class="btn active btn-default btn-xs" href="#">', str(c), '</a>']
             if c != count:
                 nav += ['</a>']
+            nav += [' <a class="btn active btn-default btn-xs" href="#">', str(c), '</a>']
 
         nav += ['</p></div>']
 
