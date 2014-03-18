@@ -96,8 +96,8 @@ DEFAULT_TEMPLATE = """
                 %(download)s
         
                 <br />
-                be.sambacoin.info site by SambaTeam. Please donate to help support site:
-                <!-- <srong>BTC:</strong> No one yet! --><strong>SMB:</strong> dXHDYczgN3VuM9kdrnAFEC6iscoCtvqzRF
+                <a href="http://be.sambacoin.info">be.sambacoin.info</a> by SambaTeam. 
+                <br />Please donate to help support site: <!-- <srong>BTC:</strong> No one yet! --><strong>SMB:</strong> dXHDYczgN3VuM9kdrnAFEC6iscoCtvqzRF
                 <br />Donate to Abe developer at BTC: 1PWC7PNHL1SgvZaN7xEtygenKjWobWsCuf
             </p>
         </div>
@@ -1195,7 +1195,7 @@ class Abe:
         return [
             '<form action="', page['dotdot'], 'search" style="margin: 50px 0"><div id="search" class="text-center">\n',
             '<input name="q" value="', escape(q), '" class="form-control" data-toggle="tooltip" data-placement="bottom" ',
-            'title="" data-original-title="Search by address, block number or hash, transaction or public key hash,',
+            'data-original-title="Search by address, block number or hash, transaction or public key hash,',
             'or chain name. Address or hash search requires at least the first ',
             HASH_PREFIX_MIN, ' characters."/>',
             '<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>\n',
