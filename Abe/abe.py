@@ -470,22 +470,22 @@ class Abe:
         
         nav += [' ', '&raquo;']
         if hi != count - 1:
-            nav[-1] = ['<a href="', basename, '?hi=', str(count - 1), '&amp;count=', str(count), '">', nav[-1], '</a>\n']
+            nav[-1] = ['<li><a href="', basename, '?hi=', str(count - 1), '&amp;count=', str(count), '">', nav[-1], '</a></li>\n']
         
-        nav += ['</ul></div>\n']
+        nav += ['</ul></div>\n\n']
         
+        nav += [' <p class="text-center pull-right">\n ']
         for c in (20, 50, 100, 500, 2016):
-            nav += [' <p class="text-center pull-right">\n ']
+            nav += [' ']
             if c != count:
                 nav += ['<a class="btn btn-default btn-xs" href="', basename, '?count=', str(c)]
                 if hi is not None:
                     nav += ['&amp;hi=', str(max(hi, c - 1))]
-                nav += ['">\n']
-                
+                nav += ['">']
+            nav += [' ', ' <a class="btn active btn-default btn-xs" href="#">', str(c), '</a>\n']
             if c != count:
-                nav += ['</a>\n']
-            nav += [' <a class="btn active btn-default btn-xs" href="#">', str(c), '</a>\n']
-
+                nav += ['</a>']            
+        
         nav += ['</p></div>']
 
         extra = False
