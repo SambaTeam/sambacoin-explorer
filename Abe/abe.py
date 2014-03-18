@@ -1192,7 +1192,7 @@ class Abe:
         q = (page['params'].get('q') or [''])[0]
         return [
             '<form action="', page['dotdot'], 'search" style="margin: 50px 0"><div id="search" class="text-center">\n',
-            '<input name="q" size="64" value="', escape(q), '" data-toggle="tooltip" data-placement="bottom" ',
+            '<input name="q" size="64" value="', escape(q), '" class="form-control" data-toggle="tooltip" data-placement="bottom" ',
             'title="" data-original-title="Search by address, block number or hash, transaction or public key hash,',
             'or chain name. Address or hash search requires at least the first ',
             HASH_PREFIX_MIN, ' characters."/>',
