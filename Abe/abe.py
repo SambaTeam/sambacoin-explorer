@@ -76,7 +76,7 @@ DEFAULT_TEMPLATE = """
         <div class="container">
             <h1 class="pull-left">
                 <a href="../chain/Diamond">
-                <img src="../static/images/dmd_logo_80x801.png" alt="Diamond"></a> Diamond Block Explorer
+                <!--<img src="../static/images/dmd_logo_80x801.png" alt="Sambacoin"></a>-->  <h1>Sambacoin Explorer</h1>
             </h1>
         </div>
     </div>
