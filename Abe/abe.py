@@ -84,12 +84,13 @@ DEFAULT_TEMPLATE = """
     <div class="container" id="body-container">
         %(body)s
     </div>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <div id="footer" style="padding-top: 30px">
         <div class="container">
             <p><a href="%(dotdot)sq">API</a> (machine-readable pages)</p>
             <p style="font-size: smaller">
                 <span style="font-style: italic">
-                    Powered by <a href="%(ABE_URL)s">%(APPNAME)s</a>
+                    Powered by <a href="%(ABE_URL)s">Abe</a>
                 </span>
         
                 %(download)s
@@ -1193,7 +1194,7 @@ class Abe:
         q = (page['params'].get('q') or [''])[0]
         return [
             '<form action="', page['dotdot'], 'search" style="margin: 50px 0"><div id="search" class="text-center">\n',
-            '<input name="q" size="64" value="', escape(q), '" class="form-control" data-toggle="tooltip" data-placement="bottom" ',
+            '<input name="q" value="', escape(q), '" class="form-control" data-toggle="tooltip" data-placement="bottom" ',
             'title="" data-original-title="Search by address, block number or hash, transaction or public key hash,',
             'or chain name. Address or hash search requires at least the first ',
             HASH_PREFIX_MIN, ' characters."/>',
