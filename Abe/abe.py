@@ -1190,13 +1190,12 @@ class Abe:
     def search_form(abe, page):
         q = (page['params'].get('q') or [''])[0]
         return [
-            '<form action="', page['dotdot'], 'search" style="margin: 50px 0"><div id="search" class="text-center">\n'
-            '<input name="q" size="64" value="', escape(q), '" data-toggle="tooltip" data-placement="bottom" '
-            'title="" data-original-title="Search by address, block number or hash, transaction or public key hash,'
+            '<form action="', page['dotdot'], 'search" style="margin: 50px 0"><div id="search" class="text-center">\n',
+            '<input name="q" size="64" value="', escape(q), '" data-toggle="tooltip" data-placement="bottom" ',
+            'title="" data-original-title="Search by address, block number or hash, transaction or public key hash,',
             'or chain name. Address or hash search requires at least the first',
-            HASH_PREFIX_MIN, ' characters."/>'
-            '<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>\n'
-            '<br />Address or hash search requires at least the first ',
+            HASH_PREFIX_MIN, ' characters."/>',
+            '<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>\n',
             '</div></form>\n']
 
     def handle_search(abe, page):
