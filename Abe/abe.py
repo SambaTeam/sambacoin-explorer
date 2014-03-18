@@ -459,30 +459,30 @@ class Abe:
             hi = int(rows[0][1])
         basename = os.path.basename(page['env']['PATH_INFO'])
 
-        nav = ['<div class="pagination-wrapper clearfix">',
-                '<ul style="margin: 0 auto" class="pagination pull-left">',
-                '<li><a href="',  basename, '?count=', str(count), '">&laquo;</a></li>']
+        nav = ['<div class="pagination-wrapper clearfix">\n',
+                '<ul style="margin: 0 auto" class="pagination pull-left">\n',
+                '<li><a href="',  basename, '?count=', str(count), '">&laquo;</a></li>\n']
 
-        nav += [' <li><a href="', basename, '?hi=', str(hi + count), '&amp;count=', str(count), '">&lsaquo;</a><li>']
-        nav += [' ', '&raquo;']
-        if hi >= count:
-            nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count), '&amp;count=', str(count), '">', nav[-1], '</a></li>']
+        nav += [' <li><a href="', basename, '?hi=', str(hi + count), '&amp;count=', str(count), '">&lsaquo;</a><li>\n']
         nav += [' ', '&rsaquo;']
-        nav += ['</ul></div>']
+        if hi >= count:
+            nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count), '&amp;count=', str(count), '">', nav[-1], '\n']
+        nav += [' ', '&rsaquo;']
+        nav += ['</a></li></ul></div>\n']
         
         if hi != count - 1:
-            nav[-1] = ['<a href="', basename, '?hi=', str(count - 1), '&amp;count=', str(count), '">', nav[-1], '</a>']
+            nav[-1] = ['<a href="', basename, '?hi=', str(count - 1), '&amp;count=', str(count), '">', nav[-1], '</a>\n']
         for c in (20, 50, 100, 500, 2016):
-            nav += [' <p class="text-center pull-right"> ']
+            nav += [' <p class="text-center pull-right">\n ']
             if c != count:
                 nav += ['<a class="btn btn-default btn-xs" href="', basename, '?count=', str(c)]
                 if hi is not None:
                     nav += ['&amp;hi=', str(max(hi, c - 1))]
-                nav += ['">']
+                nav += ['">\n']
                 
             if c != count:
-                nav += ['</a>']
-            nav += [' <a class="btn active btn-default btn-xs" href="#">', str(c), '</a>']
+                nav += ['</a>\n']
+            nav += [' <a class="btn active btn-default btn-xs" href="#">', str(c), '</a>\n']
 
         nav += ['</p></div>']
 
