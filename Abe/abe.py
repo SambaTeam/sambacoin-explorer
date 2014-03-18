@@ -84,7 +84,7 @@ DEFAULT_TEMPLATE = """
     <div class="container" id="body-container">
         %(body)s
     </div>
-    <div id="footer" style="padding-top: 10px">
+    <div id="footer" style="padding-top: 30px">
         <div class="container">
             <p><a href="%(dotdot)sq">API</a> (machine-readable pages)</p>
             <p style="font-size: smaller">
@@ -94,9 +94,10 @@ DEFAULT_TEMPLATE = """
         
                 %(download)s
         
+                <br />
                 be.sambacoin.info site by SambaTeam. Please donate to help support site:
-                <!-- BTC: No one yet! -->SMB: dXHDYczgN3VuM9kdrnAFEC6iscoCtvqzRF
-                Donate to Abe developer at BTC: 1PWC7PNHL1SgvZaN7xEtygenKjWobWsCuf
+                <!-- <srong>BTC:</strong> No one yet! --><strong>SMB:</strong> dXHDYczgN3VuM9kdrnAFEC6iscoCtvqzRF
+                <br />Donate to Abe developer at BTC: 1PWC7PNHL1SgvZaN7xEtygenKjWobWsCuf
             </p>
         </div>
     </div>    
