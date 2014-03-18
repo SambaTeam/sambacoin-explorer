@@ -463,12 +463,12 @@ class Abe:
                 '<ul style="margin: 0 auto" class="pagination pull-left">\n',
                 '<li><a href="',  basename, '?count=', str(count), '">&laquo;</a></li>\n']
 
-        nav += [' <li><a href="', basename, '?hi=', str(hi + count), '&amp;count=', str(count), '">&lsaquo;</a><li>\n']
+        nav += [' <li><a href="', basename, '?hi=', str(hi + count), '&amp;count=', str(count), '">&lsaquo;</a></li>\n']
         nav += [' ', '&rsaquo;']
         if hi >= count:
-            nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count), '&amp;count=', str(count), '">a', nav[-1], '\n']
+            nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count), '&amp;count=', str(count), '">', nav[-1], '</a></li>\n']
         nav += [' ', '&raquo;']
-        nav += ['</a></li></ul></div>\n']
+        nav += ['</ul></div>\n']
         
         if hi != count - 1:
             nav[-1] = ['<a href="', basename, '?hi=', str(count - 1), '&amp;count=', str(count), '">', nav[-1], '</a>\n']
