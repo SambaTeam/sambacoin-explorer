@@ -75,8 +75,8 @@ DEFAULT_TEMPLATE = """
     <div id="header">
         <div class="container">
             <h1 class="pull-left">
-                <a href="../chain/Diamond">
-                <!--<img src="../static/images/dmd_logo_80x801.png" alt="Sambacoin"></a>-->  <h1>Sambacoin Explorer</h1>
+                <a href="../chain/Sambacoin">
+                <!--<img src="../static/images/dmd_logo_80x801.png" alt="Sambacoin"></a>--> Sambacoin Explorer</a>
             </h1>
         </div>
     </div>
@@ -1193,7 +1193,7 @@ class Abe:
             '<form action="', page['dotdot'], 'search" style="margin: 50px 0"><div id="search" class="text-center">\n',
             '<input name="q" size="64" value="', escape(q), '" data-toggle="tooltip" data-placement="bottom" ',
             'title="" data-original-title="Search by address, block number or hash, transaction or public key hash,',
-            'or chain name. Address or hash search requires at least the first',
+            'or chain name. Address or hash search requires at least the first ',
             HASH_PREFIX_MIN, ' characters."/>',
             '<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>\n',
             '</div></form>\n']
