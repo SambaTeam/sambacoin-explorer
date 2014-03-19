@@ -64,7 +64,7 @@ DEFAULT_TEMPLATE = """
 <head>
     <link rel="shortcut icon" href="%(dotdot)s%(STATIC_PATH)sfavicon.ico" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/journal/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="%(dotdot)s%(STATIC_PATH)sabe.css" />
     
     <title>%(title)s</title>
@@ -1202,7 +1202,7 @@ class Abe:
             ' <small>[<a href="#" data-toggle="tooltip" data-placement="bottom" ',
             ' data-original-title="Search by address, block number or hash, transaction or public key hash, ',
             ' or chain name. Address or hash search requires at least the first ',
-            HASH_PREFIX_MIN, ' characters." />?</a>]</small>\n',
+            HASH_PREFIX_MIN, ' characters.">?</a>]</small>\n',
             ' <input name="q" value="', escape(q), '" class="form-control" /> \n',
             ' <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>\n',
             ' </div>\n</form>\n']
