@@ -470,12 +470,11 @@ class Abe:
             hi = int(rows[0][1])
 
         ctg = int(rows2[0][0])
-
         if hi < (ctg):
-            nav += [' <li><a href="', basename, '?count=', str(count), '">',str(ctg),'&laquo;</a></li>\n']
+            nav += [' <li><a href="', basename, '?count=', str(count), '">&laquo;</a></li>\n']
             nav += [' <li><a href="', basename, '?hi=', str(hi + count), '&amp;count=', str(count), '">&lsaquo;</a></li>\n']
         else:
-            nav += [' <li class="disabled"><a href="#">hi:', str(hi) ,' row:', str(rows[0][1]),'&laquo;</a></li>\n']
+            nav += [' <li class="disabled"><a href="#">&laquo;</a></li>\n']
             nav += [' <li class="disabled"><a href="#">&lsaquo;</a></li>\n']
         
         nav += [' ', '&rsaquo;']
