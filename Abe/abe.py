@@ -453,14 +453,16 @@ class Abe:
              ORDER BY cc.block_height DESC LIMIT ?
         """, (chain.id, hi - count + 1, hi, count))
 
+        nav = [ '<ul style="margin: 0 auto" class="pagination pull-left">\n']
+        basename = os.path.basename(page['env']['PATH_INFO'])
+        
         if hi is None:
             hi = int(rows[0][1])
-        basename = os.path.basename(page['env']['PATH_INFO'])
-
-        nav = [ '<ul style="margin: 0 auto" class="pagination pull-left">\n',
-                '<li><a href="',  basename, '?count=', str(count), '">&laquo;</a></li>\n']
-
-        nav += [' <li><a href="', basename, '?hi=', str(hi + count), '&amp;count=', str(count), '">&lsaquo;</a></li>\n']
+            nav += [' <li class="disabled"><a href="#">&laquo;</a></li>\n']
+            nav += [' <li class="disabled"><a href="#">&lsaquo;</a></li>\n']            
+        else:            
+            nav += [' <li><a href="', basename, '?count=', str(count), '">&laquo;</a></li>\n']
+            nav += [' <li><a href="', basename, '?hi=', str(hi + count), '&amp;count=', str(count), '">&lsaquo;</a></li>\n']
         
         nav += [' ', '&rsaquo;']
         if hi >= count:
