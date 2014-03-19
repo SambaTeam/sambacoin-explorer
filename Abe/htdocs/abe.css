@@ -5,7 +5,7 @@ body {
 	padding-top: 30px;
 	padding-bottom: 30px;
 	background-color: #222A13; /* ou #455427 */
-	color: #87B42D;
+	color: #eaf067;
 }
 
 #footer {
@@ -17,7 +17,7 @@ body {
 	margin: 10px 0;
 }
 #header h1 small {
-	color: #eaf067;
+	color: #87B42D;
 }
 
 #q {
