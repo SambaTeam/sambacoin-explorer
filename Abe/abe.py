@@ -455,7 +455,7 @@ class Abe:
 
 
         rows2 = abe.store.selectall("""
-            SELECT max(b.block_id) ctg
+            SELECT max(cc.block_height) ctg
               FROM block b
               JOIN chain_candidate cc ON (b.block_id = cc.block_id)
              WHERE cc.chain_id = ?
@@ -470,8 +470,8 @@ class Abe:
             hi = int(rows[0][1])
 
         ctg = int(rows2[0][0])
-        #nav += [ str(ctg) ]
-        if hi < (ctg-1):
+
+        if hi < (ctg):
             nav += [' <li><a href="', basename, '?count=', str(count), '">',str(ctg),'&laquo;</a></li>\n']
             nav += [' <li><a href="', basename, '?hi=', str(hi + count), '&amp;count=', str(count), '">&lsaquo;</a></li>\n']
         else:
