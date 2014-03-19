@@ -88,15 +88,14 @@ DEFAULT_TEMPLATE = """
         <div class="container">
             <p><a href="%(dotdot)sq">API</a> (machine-readable pages)</p>
             <p style="font-size: smaller">
+                %(download)s
+
+                <a href="http://be.sambacoin.info">http://be.sambacoin.info</a> by SambaTeam. 
+                <br />Please donate to help us support site: <!-- <srong>BTC:</strong> No one yet! --><strong>SMB:</strong> dXHDYczgN3VuM9kdrnAFEC6iscoCtvqzRF
+                <br /><br />
                 <span style="font-style: italic">
                     Powered by <a href="%(ABE_URL)s">Abe</a>
-                </span>
-        
-                %(download)s
-        
-                <br />
-                <a href="http://be.sambacoin.info">be.sambacoin.info</a> by SambaTeam. 
-                <br />Please donate to help support site: <!-- <srong>BTC:</strong> No one yet! --><strong>SMB:</strong> dXHDYczgN3VuM9kdrnAFEC6iscoCtvqzRF
+                </span>                
                 <br />Donate to Abe developer at BTC: 1PWC7PNHL1SgvZaN7xEtygenKjWobWsCuf
             </p>
         </div>
