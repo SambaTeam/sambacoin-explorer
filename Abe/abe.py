@@ -460,7 +460,7 @@ class Abe:
             hi = int(rows[0][1])
             nav += [ 'teste'] 
             
-        if hi < int(rows[0][1]):
+        if hi <= count:
             nav += [' <li><a href="', basename, '?count=', str(count), '">&laquo;</a></li>\n']
             nav += [' <li><a href="', basename, '?hi=', str(hi + count), '&amp;count=', str(count), '">&lsaquo;</a></li>\n']
         else:
