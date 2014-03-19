@@ -467,18 +467,20 @@ class Abe:
         if hi >= count:
             nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count), '&amp;count=', str(count), '">&rsaquo;</a></li>\n']
         else:
-            nav[-1] = ['<li><a href="#" class="disabled">&rsaquo;</a></li>\n']
+            nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count),
+                        '&amp;count=', str(count), '" class="disabled">&rsaquo;</a></li>\n']
         
         nav += [' ', '&raquo;']
         if hi != count - 1:
             nav[-1] = ['<li><a href="', basename, '?hi=', str(count - 1), '&amp;count=', str(count), '">&raquo;</a></li>\n']
         else:
-            nav[-1] = ['<li><a href="#" class="disabled">&raquo;</a></li>\n']
+            nav[-1] = ['<li><a href="', basename, '?hi=', str(count - 1),
+                        '&amp;count=', str(count), '" class="disabled">&raquo;</a></li>\n']
         
         nav += ['</ul>\n\n']
         
         nav += [' <p class="text-center pull-right">\n ']
-        for c in (20, 50, 100, 500, 2016):
+        for c in (20, 50, 100):
             nav += [' ']
             if c != count:
                 nav += ['<a class="btn btn-default btn-xs" href="', basename, '?count=', str(c)]
