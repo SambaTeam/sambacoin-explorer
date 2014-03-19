@@ -469,7 +469,7 @@ class Abe:
         if hi is None:
             hi = int(rows[0][1])
 
-        ctg = 0 #int(rows2[0][0])
+        ctg = int(rows2[0][1])
         #nav += [ str(ctg) ]
         if hi < (ctg-1):
             nav += [' <li><a href="', basename, '?count=', str(count), '">&laquo;</a></li>\n']
