@@ -458,6 +458,7 @@ class Abe:
         
         if hi is None:
             hi = int(rows[0][1])
+            nav += [ 'teste'] 
             
         if hi < int(rows[0][1]):
             nav += [' <li><a href="', basename, '?count=', str(count), '">&laquo;</a></li>\n']
