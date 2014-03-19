@@ -458,8 +458,6 @@ class Abe:
         
         if hi is None:
             hi = int(rows[0][1])
-        
-        if hi == int(rows[0][1]):
             nav += [' <li class="disabled"><a href="#">&laquo;</a></li>\n']
             nav += [' <li class="disabled"><a href="#">&lsaquo;</a></li>\n']            
         else:            
