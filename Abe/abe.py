@@ -66,8 +66,6 @@ DEFAULT_TEMPLATE = """
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="%(dotdot)s%(STATIC_PATH)sabe.css" />
-
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     
     <title>%(title)s</title>
 </head>
@@ -463,6 +461,7 @@ class Abe:
                 '<li><a href="',  basename, '?count=', str(count), '">&laquo;</a></li>\n']
 
         nav += [' <li><a href="', basename, '?hi=', str(hi + count), '&amp;count=', str(count), '">&lsaquo;</a></li>\n']
+        
         nav += [' ', '&rsaquo;']
         if hi >= count:
             nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count), '&amp;count=', str(count), '">&rsaquo;</a></li>\n']
@@ -474,12 +473,10 @@ class Abe:
             nav[-1] = ['<li><a href="', basename, '?hi=', str(count - 1), '&amp;count=', str(count), '">&raquo;</a></li>\n']
         else:
             nav[-1] = ['<li class="disabled"><a href="#">&raquo;</a></li>\n']
-        #    nav[-1] = ['<li><a href="', basename, '?hi=', str(count - 1),
-        #                '&amp;count=', str(count), '" class="disabled">&raquo;</a></li>\n']
-        
+
         nav += ['</ul>\n\n']
         
-        nav += [' <p class="text-center pull-right">\n ']
+        nav += [' <p class="text-center pull-right">Records per page: \n ']
         for c in (20, 50, 100):
             nav += [' ']
             if c != count:
