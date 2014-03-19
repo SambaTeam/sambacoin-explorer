@@ -466,17 +466,14 @@ class Abe:
         nav += [' ', '&rsaquo;']
         if hi >= count:
             nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count), '&amp;count=', str(count), '">&rsaquo;</a></li>\n']
-        
-        if hi < 0:
-            nav[-1] = ['<li><a href="', basename, '?hi=', str(hi - count),
-                        '&amp;count=', str(count), '" class="disabled">&rsaquo;</a></li>\n']
+        else:
+            nav[-1] = ['<li class="disabled">&rsaquo;</li>\n']
         
         nav += [' ', '&raquo;']
         if hi != count - 1:
             nav[-1] = ['<li><a href="', basename, '?hi=', str(count - 1), '&amp;count=', str(count), '">&raquo;</a></li>\n']
-        
-        if hi < 0:
-            nav[-1] = ['<li class="disabled"><a href="#" >&raquo;</a></li>\n']
+        else:
+            nav[-1] = ['<li class="disabled">&raquo;</li>\n']
         #    nav[-1] = ['<li><a href="', basename, '?hi=', str(count - 1),
         #                '&amp;count=', str(count), '" class="disabled">&raquo;</a></li>\n']
         
