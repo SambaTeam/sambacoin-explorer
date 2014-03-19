@@ -75,6 +75,7 @@ DEFAULT_TEMPLATE = """
             <a href="../chains/sambacoin">
                 <h1 class="pull-left">
                     Sambacoin Explorer
+                    <small>Let's Samba!</small>
                 </h1>
             </a>
         </div>
