@@ -8,6 +8,10 @@ body {
 	color: #87B42D;
 }
 
+#footer {
+	margin-top: 30px;
+}
+
 #header h1 {
 	color: #EDF2E3;
 	margin: 10px 0;
