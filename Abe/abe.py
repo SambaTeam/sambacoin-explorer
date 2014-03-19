@@ -457,9 +457,9 @@ class Abe:
         basename = os.path.basename(page['env']['PATH_INFO'])
         
         if hi is None:
-            hi = int(rows[0][1])
             nav += [' <li class="disabled"><a href="#">&laquo;</a></li>\n']
-            nav += [' <li class="disabled"><a href="#">&lsaquo;</a></li>\n']            
+            nav += [' <li class="disabled"><a href="#">&lsaquo;</a></li>\n']
+            hi = int(rows[0][1])
         else:            
             nav += [' <li><a href="', basename, '?count=', str(count), '">&laquo;</a></li>\n']
             nav += [' <li><a href="', basename, '?hi=', str(hi + count), '&amp;count=', str(count), '">&lsaquo;</a></li>\n']
