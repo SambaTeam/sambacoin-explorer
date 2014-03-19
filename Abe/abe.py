@@ -92,7 +92,7 @@ DEFAULT_TEMPLATE = """
                 %(download)s
 
                 <a href="http://be.sambacoin.info">http://be.sambacoin.info</a> by SambaTeam. 
-                Please donate to help us support site: <br /><strong>BTC:</strong> No one yet! <strong>SMB:</strong> No one yet!
+                Please donate to help us support site: <br /><strong>BTC:</strong> 18Hcq78UYWG3AVC46fMNStv1DjrWZbNgyU <strong>SMB:</strong> S1zjnr4m58ga56GmsotLNHyZR81T3LhFer
                 <br /><br />
                 <span style="font-style: italic">
                     Powered by <a href="%(ABE_URL)s">Abe</a>
