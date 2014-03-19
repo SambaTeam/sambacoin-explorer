@@ -16,6 +16,9 @@ body {
 	color: #EDF2E3;
 	margin: 10px 0;
 }
+#header h1 small {
+	color: #eaf067;
+}
 
 #q {
 	width: 300px;
