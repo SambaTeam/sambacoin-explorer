@@ -1199,8 +1199,7 @@ class Abe:
         return [
             ' <form action="', page['dotdot'], 'search" class="form-inline" style="margin: 50px 0">\n',
             ' <div id="search" class="text-center">\n',
-            ' <small>[<a href="#" data-toggle="tooltip" data-placement="bottom" ',
-            ' data-original-title="Search by address, block number or hash, transaction or public key hash, ',
+            ' <small>[<a href="#" data-toggle="tooltip" title="Search by address, block number or hash, transaction or public key hash, ',
             ' or chain name. Address or hash search requires at least the first ',
             HASH_PREFIX_MIN, ' characters.">?</a>]</small>\n',
             ' <input name="q" value="', escape(q), '" class="form-control" /> \n',
